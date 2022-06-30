@@ -10,4 +10,6 @@
         <p>{{album.added_to_database_at}}</p>
     </div>
 </div>
+
+<a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>
 {% endblock %}
