@@ -10,9 +10,9 @@ def list_albums(request):
     return render(request, "Album/list_albums.html", {"albums": albums})
 
 
-def album_info(request):
-    albums = Album.objects.all()
-    return render(request, "Album/album_info.html", {"album": albums})
+def album_info(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    return render(request, "Album/album_info.html", {"album": album})
 
 
 def add_album(request):

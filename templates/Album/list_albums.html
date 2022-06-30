@@ -1,9 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
 <h1>All Albums </h1>
 {% for album in albums %}
 <div>
     <div>
         <div>{{album.album_name}}
-            <div><a href="{% url 'album_info' %}"> Click here for Album Info</a></div>
+            <p>{{album.added_to_dabase_at}}</p>
+            <div><a href="{% url 'album_info' pk=album.pk %}"> Click here for Album Info</a></div>
         </div>
         <!-- <p>{{album.artist_name}}</p>
         <p>{{album.track_name}}</p>
@@ -14,3 +18,5 @@
 
 
 <p><a href="{% url 'add_album' %}">Add New Album</a></p>
+
+{% endblock %}
