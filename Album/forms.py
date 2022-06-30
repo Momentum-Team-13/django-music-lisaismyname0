@@ -10,3 +10,8 @@ class AlbumForm(forms.ModelForm):
             "track_name",
             "album_name",
         ]
+        labels = {
+            "artist_name": "artist name",
+            "track_name": "track name",
+            "album_name": "album name",
+        }

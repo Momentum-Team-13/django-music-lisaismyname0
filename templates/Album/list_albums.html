@@ -2,21 +2,19 @@
 
 {% block content %}
 <h1>All Albums </h1>
+<p><a href="{% url 'add_album' %}">Add New Album</a></p>
+
 {% for album in albums %}
-<div>
+<div class="album_info_link">
     <div>
         <div>{{album.album_name}}
-            <p>{{album.added_to_dabase_at}}</p>
             <div><a href="{% url 'album_info' pk=album.pk %}"> Click here for Album Info</a></div>
+            <p>Added to database on: {{album.added_to_database_at}}</p>
         </div>
-        <!-- <p>{{album.artist_name}}</p>
-        <p>{{album.track_name}}</p>
-        <p>{{album.created_at}}</p> -->
     </div>
 </div>
 {% endfor %}
 
 
-<p><a href="{% url 'add_album' %}">Add New Album</a></p>
 
 {% endblock %}
