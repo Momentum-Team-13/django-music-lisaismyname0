@@ -19,7 +19,7 @@ class Artist(models.Model):
     artists_albums = ["artist_album1", "artist_album2"]
 
     album = models.ForeignKey(
-        "Album", on_delete=models.CASCADE, related_name="artist", blank=True, null=True)
+        "Album", on_delete=models.CASCADE, related_name="album_title", blank=True, null=True)
 
     def __str__(self):
         return f"{self.artist_name}"

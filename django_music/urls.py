@@ -20,7 +20,7 @@ from Album import views as album_views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('', album_views.list_albums, name="list_album"),
+    path('', album_views.list_albums, name="list_albums"),
 
     path('Album/add_album/', album_views.add_album, name="add_album"),
 

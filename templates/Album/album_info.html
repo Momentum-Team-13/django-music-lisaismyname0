@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
+<a href="{% url 'list_albums' %}">Return to Albums Page</a>
+
 <div>
-    {% if album.album_name %}
     <h1> {{album.album_name}}</h1>
-    {% endif %}
     <div>
         <p>{{album.artist_name}}</p>
         <p>{{album.track_name}}</p>
@@ -12,9 +12,13 @@
 </div>
 
 <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>
-{% endblock %}
+<div>More albums by {{album.artist_name}}
 
-<div>artist's other albums
-    <a href="">album1</a>
-    <a href="">album2</a>
+    {% for album in album.album_name.all %}
+    <div>{{album}} {{album_name}} {{artists_ablums}}</div>
+
+    {% endfor %}
 </div>
+
+
+{% endblock %}
