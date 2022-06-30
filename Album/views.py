@@ -40,3 +40,12 @@ def edit_album(request, pk):
         "form": form,
         "album": album,
     })
+
+
+def delete_album(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    if request.method == 'POST':
+        album.delete()
+        return redirect(to='list_album')
+    return render(request, "Album/delete_album.html",
+                  {"album": album})

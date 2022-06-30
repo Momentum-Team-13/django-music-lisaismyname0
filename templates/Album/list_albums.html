@@ -9,7 +9,9 @@
     <div>
         <div>{{album.album_name}}
             <div><a href="{% url 'album_info' pk=album.pk %}"> Click here for Album Info</a></div>
-            <p>Added to database on: {{album.added_to_database_at}}</p>
+            <a href="{% url 'delete_album' pk=album.pk%}">Remove Album</a>
+            <p>Added to database on:
+                {{album.added_to_database_at}}</p>
         </div>
     </div>
 </div>
