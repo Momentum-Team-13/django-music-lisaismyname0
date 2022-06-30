@@ -1,0 +1,15 @@
+<h1>All Albums </h1>
+{% for album in albums %}
+<div>
+    <div>
+        <p>{{album.album_name}}</p>
+        <div><a href="{% url 'album_info' %}"> Click here for Album Info</a></div>
+        <p>{{album.artist_name}}</p>
+        <p>{{album.track_name}}</p>
+        <p>{{album.created_at}}</p>
+    </div>
+</div>
+{% endfor %}
+
+
+<p><a href="{% url 'add_album' %}">Add New Album</a></p>
