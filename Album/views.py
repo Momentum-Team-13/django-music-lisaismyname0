@@ -22,5 +22,5 @@ def add_album(request):
         form = AlbumForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect(to="list_albums")
+            return redirect(to="list_albums.html")
     return render(request, "Album/add_album.html", {"form": form})

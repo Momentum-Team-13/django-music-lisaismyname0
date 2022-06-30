@@ -1,9 +1,13 @@
+{% block content %}
+
+This should display album info
 <div>
-    <h1> Album Info</h1>
+    <h1> {{album.album_name}}</h1>
     <div>
-        <p>Artist Name</p>
-        <p>Track Name</p>
-        <p>Album Name</p>
-        <p>Logged in Database on: (date)</p>
+        <p>{{album.artist_name}}</p>
+        <p>{{album.track_name}}</p>
+        <p>{{album.created_at}}</p>
     </div>
 </div>
+
+{% endblock %}
