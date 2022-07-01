@@ -14,6 +14,8 @@ h2 {
 }
 
 .album_card {
+    width: 50 px;
     border: 5px black solid;
-    display: flex
+    display: flex;
+    background-color: salmon;
 }

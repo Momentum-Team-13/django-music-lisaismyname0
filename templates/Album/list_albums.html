@@ -13,9 +13,8 @@
             <div class="album_card">
                 <h2>{{album.album_name}} - {{album.artist_name}}</h2>
                 <div>
-                    <a href="{% url 'album_info' pk=album.pk %}"> Click here for Album Info</a>
-                </div>
-                <div>
+                    <a href="{% url 'album_info' pk=album.pk %}"> Album Info</a>
+                    <p></p>
                     <a href="{% url 'delete_album' pk=album.pk%}">Remove Album</a>
                     <p></p>
                 </div>
