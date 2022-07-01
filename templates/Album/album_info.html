@@ -3,9 +3,9 @@
 <a href="{% url 'list_albums' %}">Return to Albums Page</a>
 
 <div>
-    <h1> {{album.album_name}}</h1>
+    <h1> {{album}}</h1>
     <div>
-        <h2>{{album.artist_name}}</h2>
+        <h2>{{album.artist}}</h2>
         <!-- <p>{{album.track_name}}</p> -->
         <p>Added to database on: {{album.added_to_database_at}}</p>
     </div>
@@ -13,10 +13,10 @@
 
 <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>
 <div>
-    <p>More albums by {{album.artist_name}}</p>
+    <p>More albums by {{album.artist}}</p>
 
-    {% for album in album.album_name.all %}
-    <div>{{album}} {{album_name}} {{artists_ablums}}</div>
+    {% for album in album.artist.albums.all %}
+    <div>{{album}} </div>
 
     {% endfor %}
 </div>

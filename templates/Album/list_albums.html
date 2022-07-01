@@ -2,8 +2,10 @@
 
 {% block content %}
 {% load static %}
-<h1>All Albums </h1>
+
 <p><a href="{% url 'add_album' %}">Add New Album</a></p>
+
+<h1>All Albums </h1>
 
 <div id="container">
     {% for album in albums %}
@@ -11,7 +13,9 @@
     <div>
         <div>
             <div class="album_card">
-                <h2>{{album.album_name}} - {{album.artist_name}}</h2>
+                <div>
+                    <h2>{{album}} - {{album.artist}}</h2>
+                </div>
                 <div>
                     <a href="{% url 'album_info' pk=album.pk %}"> Album Info</a>
                     <p></p>

@@ -4,30 +4,24 @@ from users.models import User
 
 
 class Album(models.Model):
-    artist_name = models.CharField(max_length=255)
-    track_name = models.CharField(max_length=255)
-    album_name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     added_to_database_at = models.DateTimeField(
         auto_now_add=True,)
     artist = models.ForeignKey(
-        "Artist", on_delete=models.CASCADE, related_name="artist1", blank=True, null=True)
+        "Artist", on_delete=models.CASCADE, related_name="albums", blank=True, null=True)
+    # this says given an artist i can show all of the album objects that are related to that artist
+    # one to many field (album can have 1 artist, but an artist can have many albums)
 
     def __str__(self):
-        return f"{self.album_name}"
+        return f"{self.name}"
 
 
 class Artist(models.Model):
-    artist_name = "artist_name"
-    artists_albums = ["artist_album1", "artist_album2"]
-
-    artist_name = models.ForeignKey(
-        "Artist", on_delete=models.CASCADE, related_name="artist2", blank=True, null=True)
-
-    album = models.ForeignKey(
-        "Album", on_delete=models.CASCADE, related_name="album_title", blank=True, null=True)
+    # related name should be the plural of the model that i'm on
+    name = models.CharField(max_length=255)
 
     def __str__(self):
-        return f"{self.artist_name}"
+        return f"{self.name}"
 
 
 class Favorite(models.Model):

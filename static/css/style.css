@@ -3,8 +3,10 @@ h1 {
 }
 
 h2 {
-    color: purple;
+    color: navy;
 }
+
+/* clear cache */
 
 #container {
     width: 50 px;
@@ -17,5 +19,5 @@ h2 {
     width: 50 px;
     border: 5px black solid;
     display: flex;
-    background-color: salmon;
+    box-sizing: content-box;
 }

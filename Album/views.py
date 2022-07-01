@@ -50,10 +50,3 @@ def delete_album(request, pk):
         return redirect(to='list_albums')
     return render(request, "Album/delete_album.html",
                   {"album": album})
-
-
-def albums_artist(request, pk):
-    artist = get_object_or_404(Artist, pk=pk)
-    album = get_object_or_404(Album, pk=pk)
-    artist = artist.album
-    pass
