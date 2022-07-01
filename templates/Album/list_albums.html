@@ -5,14 +5,22 @@
 <h1>All Albums </h1>
 <p><a href="{% url 'add_album' %}">Add New Album</a></p>
 
-{% for album in albums %}
-<div class="album_info_link">
+<div id="container">
+    {% for album in albums %}
+
     <div>
-        <div>{{album.album_name}}
-            <div><a href="{% url 'album_info' pk=album.pk %}"> Click here for Album Info</a></div>
-            <a href="{% url 'delete_album' pk=album.pk%}">Remove Album</a>
-            <p>Added to database on:
-                {{album.added_to_database_at}}</p>
+        <div>
+            <div class="album_card">
+                <h2>{{album.album_name}} - {{album.artist_name}}</h2>
+                <div>
+                    <a href="{% url 'album_info' pk=album.pk %}"> Click here for Album Info</a>
+                </div>
+                <div>
+                    <a href="{% url 'delete_album' pk=album.pk%}">Remove Album</a>
+                    <p></p>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>

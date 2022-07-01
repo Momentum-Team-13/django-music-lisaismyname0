@@ -20,7 +20,7 @@ class Artist(models.Model):
     artist_name = "artist_name"
     artists_albums = ["artist_album1", "artist_album2"]
 
-    artist = models.ForeignKey(
+    artist_name = models.ForeignKey(
         "Artist", on_delete=models.CASCADE, related_name="artist2", blank=True, null=True)
 
     album = models.ForeignKey(

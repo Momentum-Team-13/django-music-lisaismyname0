@@ -5,14 +5,15 @@
 <div>
     <h1> {{album.album_name}}</h1>
     <div>
-        <p>{{album.artist_name}}</p>
-        <p>{{album.track_name}}</p>
-        <p>{{album.added_to_database_at}}</p>
+        <h2>{{album.artist_name}}</h2>
+        <!-- <p>{{album.track_name}}</p> -->
+        <p>Added to database on: {{album.added_to_database_at}}</p>
     </div>
 </div>
 
 <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>
-<div>More albums by {{album.artist_name}}
+<div>
+    <p>More albums by {{album.artist_name}}</p>
 
     {% for album in album.album_name.all %}
     <div>{{album}} {{album_name}} {{artists_ablums}}</div>
