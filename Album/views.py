@@ -23,7 +23,7 @@ def add_album(request):
         form = AlbumForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect(to="list_album")
+            return redirect(to="list_albums")
     return render(request, "Album/add_album.html", {"form": form})
 
 
@@ -35,7 +35,7 @@ def edit_album(request, pk):
         form = AlbumForm(data=request.POST, instance=album)
         if form.is_valid():
             form.save()
-            return redirect(to='list_album')
+            return redirect(to='list_albums')
 
     return render(request, "Album/edit_album.html", {
         "form": form,
@@ -47,7 +47,7 @@ def delete_album(request, pk):
     album = get_object_or_404(Album, pk=pk)
     if request.method == 'POST':
         album.delete()
-        return redirect(to='list_album')
+        return redirect(to='list_albums')
     return render(request, "Album/delete_album.html",
                   {"album": album})
 
