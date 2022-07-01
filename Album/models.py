@@ -9,6 +9,8 @@ class Album(models.Model):
     album_name = models.CharField(max_length=255)
     added_to_database_at = models.DateTimeField(
         auto_now_add=True,)
+    artist = models.ForeignKey(
+        "Artist", on_delete=models.CASCADE, related_name="artist1", blank=True, null=True)
 
     def __str__(self):
         return f"{self.album_name}"
@@ -17,6 +19,9 @@ class Album(models.Model):
 class Artist(models.Model):
     artist_name = "artist_name"
     artists_albums = ["artist_album1", "artist_album2"]
+
+    artist = models.ForeignKey(
+        "Artist", on_delete=models.CASCADE, related_name="artist2", blank=True, null=True)
 
     album = models.ForeignKey(
         "Album", on_delete=models.CASCADE, related_name="album_title", blank=True, null=True)
