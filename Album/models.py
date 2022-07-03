@@ -10,6 +10,8 @@ class Album(models.Model):
         "Artist", on_delete=models.CASCADE, related_name="albums", blank=True, null=True)
     # this says given an artist i can show all of the album objects that are related to that artist
     # one to many field (album can have 1 artist, but an artist can have many albums)
+    # user = models.ForeignKey(
+    #     "User", on_delete=models.CASCADE, related_name="favorites")
 
     def __str__(self):
         return f"{self.name}"
@@ -31,7 +33,7 @@ class User(models.Model):
 
 
 class Favorite(models.Model):
-    user = models.ForeignKey(
-        "User", on_delete=models.CASCADE, related_name="favorites")
+    # user = models.ForeignKey(
+    #     "User", on_delete=models.CASCADE, related_name="favorites")
     album = models.ForeignKey(
         Album, on_delete=models.CASCADE, related_name="favorites")

@@ -56,15 +56,12 @@ def delete_album(request, pk):
 def add_favorite(request, pk):
     album = get_object_or_404(Album, pk=pk)
     if request.method == "GET":
-        form = FavoriteForm()
+        user = "lisaismyname0"
+        album.name = album.name, "⭐"
     else:
-        form = FavoriteForm(data=request.POST)
-        if form.is_valid():
-            fav_button = form.save(commit=False)
-            fav_button.album = album
-            fav_button.save()
-    return render(request,
-                  "Album,list_albums.html", {
-                      "form": form,
-                      "album": album,
-                  })
+        album.name = album.name
+
+
+def by_artist(request, pk):
+    artist = get_object_or_404(Artist, pk=pk)
+    return render(request, "Album/by_artist.html", {"artist": artist})

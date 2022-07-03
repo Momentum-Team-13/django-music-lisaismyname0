@@ -14,7 +14,7 @@
         <div>
             <div class="album_card">
                 <div>
-                    <h2>{{album}} - {{album.artist}}</h2>
+                    <h2>{{album}} - <a href="{% url 'by_artist' pk=album.artist.pk%}">{{album.artist}}</a></h2>
                 </div>
 
 
@@ -23,7 +23,15 @@
                     <p></p>
                     <a href="{% url 'delete_album' pk=album.pk%}">Remove Album</a>
                     <p></p>
-                    
+
+                    {% if favorites %}
+                    <form action="{% url 'list_albums' pk=album.pk %}" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        {% endif %}
+                        <button type="submit">Click to Favorite</button>
+                    </form>
+
                 </div>
 
             </div>

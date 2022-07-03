@@ -31,4 +31,7 @@ urlpatterns = [
     path('Album/<int:pk>/delete/',
          album_views.delete_album,
          name='delete_album'),
+
+    path('Album/<int:pk>/artist/', album_views.by_artist, name="by_artist",
+         )
 ]
