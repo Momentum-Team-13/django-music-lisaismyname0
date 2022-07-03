@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Album
 from .forms import AlbumForm
 from Album.models import Artist
+from .forms import FavoriteForm
 
 # Create your views here.
 
@@ -50,3 +51,20 @@ def delete_album(request, pk):
         return redirect(to='list_albums')
     return render(request, "Album/delete_album.html",
                   {"album": album})
+
+
+def add_favorite(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    if request.method == "GET":
+        form = FavoriteForm()
+    else:
+        form = FavoriteForm(data=request.POST)
+        if form.is_valid():
+            fav_button = form.save(commit=False)
+            fav_button.album = album
+            fav_button.save()
+    return render(request,
+                  "Album,list_albums.html", {
+                      "form": form,
+                      "album": album,
+                  })

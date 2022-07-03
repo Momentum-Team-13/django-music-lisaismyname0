@@ -13,3 +13,12 @@ class AlbumForm(forms.ModelForm):
             "artist": "artist",
             "album": "album",
         }
+
+
+class FavoriteForm(forms.ModelForm):
+    fields = [
+        "favorite",
+    ]
+    labels = {
+        "favorite": "⭐",
+    }

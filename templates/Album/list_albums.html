@@ -16,11 +16,14 @@
                 <div>
                     <h2>{{album}} - {{album.artist}}</h2>
                 </div>
+
+
                 <div>
                     <a href="{% url 'album_info' pk=album.pk %}"> Album Info</a>
                     <p></p>
                     <a href="{% url 'delete_album' pk=album.pk%}">Remove Album</a>
                     <p></p>
+                    
                 </div>
 
             </div>

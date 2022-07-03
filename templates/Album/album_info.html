@@ -21,5 +21,12 @@
     {% endfor %}
 </div>
 
+{% if favorites %}
+<form action="{% url 'list_albums' pk=album.pk %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% endif %}
+    <button type="submit">Click to Favorite</button>
+</form>
 
 {% endblock %}

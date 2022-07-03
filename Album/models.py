@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from users.models import User
 
 
 class Album(models.Model):
@@ -24,8 +23,15 @@ class Artist(models.Model):
         return f"{self.name}"
 
 
+class User(models.Model):
+    name = "Lisa"
+
+    def __str__(self):
+        return f"{self.name}"
+
+
 class Favorite(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="favorites")
+        "User", on_delete=models.CASCADE, related_name="favorites")
     album = models.ForeignKey(
         Album, on_delete=models.CASCADE, related_name="favorites")
