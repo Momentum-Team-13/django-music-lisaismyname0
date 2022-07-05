@@ -64,11 +64,12 @@ def add_favorite(request, pk):
             fave.album = album
             fave.save()
             # return redirect(to='list_albums')
-    return render(request, "Album/add_favorite.html", {
+    return render(request, "Album/edit_album.html", {
         "form": form,
         "album": album, })
 
 
 def by_artist(request, pk):
-    artist = get_object_or_404(Artist, pk=pk)
-    return render(request, "Album/by_artist.html", {"artist": artist})
+    album = get_object_or_404(Album, pk=pk)
+    artist = album.artist
+    return render(request, "Album/by_artist.html", {"album": album, "artist": artist})
