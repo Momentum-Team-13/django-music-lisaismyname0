@@ -25,7 +25,9 @@
 
                 <div class="album_buttons">
                     <div>
-                        <a href="{% url 'album_info' pk=album.pk %}"> Album Info</a>
+                        <a href="{% url 'edit_album' pk=album.pk %}">Add to Favorites</a>
+                        <a href="{% url 'album_info' pk=album.pk %}"> Album
+                            Info</a>
                         <p></p>
                         <a href="{% url 'delete_album' pk=album.pk%}">Remove Album</a>
                         <p></p>
