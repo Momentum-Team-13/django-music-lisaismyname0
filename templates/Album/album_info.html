@@ -18,7 +18,7 @@
 </div>
 <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>
 <div>
-    <p>More albums by {{album.artist}}</p>
+    <h4>More albums by {{album.artist}}:</h4>
 
     {% for album in album.artist.albums.all %}
     <div>
