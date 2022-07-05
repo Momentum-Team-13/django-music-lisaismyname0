@@ -8,6 +8,7 @@ class AlbumForm(forms.ModelForm):
         fields = [
             "artist",
             "name",
+            "favorite"
         ]
         labels = {
             "artist": "artist",
@@ -15,11 +16,11 @@ class AlbumForm(forms.ModelForm):
         }
 
 
-class FavoriteForm(forms.ModelForm):
-    fields = [
-        "favorite"
-        "user"
-    ]
-    labels = {
-        "favorite": "⭐",
-    }
+# class FavoriteForm(forms.ModelForm):
+#     fields = [
+#         "favorite"
+#         "user"
+#     ]
+#     labels = {
+#         "favorite": "⭐",
+#     }

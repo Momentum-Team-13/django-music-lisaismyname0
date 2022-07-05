@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Album
 from .forms import AlbumForm
 from Album.models import Artist
-from .forms import FavoriteForm
+# from .forms import FavoriteForm
 
 # Create your views here.
 
