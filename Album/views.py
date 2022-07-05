@@ -63,7 +63,8 @@ def add_favorite(request, pk):
             fave = form.save(commit=False)
             fave.album = album
             fave.save()
-    return render(request, "Album/album_info.html", {
+            # return redirect(to='list_albums')
+    return render(request, "Album/add_favorite.html", {
         "form": form,
         "album": album, })
 

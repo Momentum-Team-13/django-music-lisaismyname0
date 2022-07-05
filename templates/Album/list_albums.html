@@ -5,7 +5,8 @@
 
 <p><a href="{% url 'add_album' %}">Add New Album</a></p>
 
-<h1>All Albums </h1>
+<h1>My Album Collection</h1>
+<p> click "Album Info" or Artist's name for more information</p>
 
 {% for album in albums %}
 
@@ -14,32 +15,27 @@
         <div>
             <div class="album_card">
                 <div>
-                    <h2>{{album}} - <a href="{% url 'by_artist' pk=album.artist.pk%}">{{album.artist}}</a></h2>
+                    <h3>{{album}} - <a href="{% url 'by_artist' pk=album.artist.pk%}">{{album.artist}}</a></h3>
+                    {% if album.favorite == True %}
+                    <p>^ this is one of my favs</p>
+                    {% endif %}
+                </div>
+
+                <div class="album_buttons">
                     <div>
-                        <form action="{% url 'album_info' pk=album.pk %}" method="POST">
+                        <a href="{% url 'album_info' pk=album.pk %}"> Album Info</a>
+                        <p></p>
+                        <a href="{% url 'delete_album' pk=album.pk%}">Remove Album</a>
+                        <p></p>
+                    </div>
+                    <div>
+                        <form action="{% url 'add_favorite' pk=album.pk %}" method="POST">
                             {% csrf_token %}
                             {{ form.as_p }}
                             <button type="submit">Click to Favorite</button>
                         </form>
                     </div>
-                    {% if album.favorite == True %}
-                    <h2>^ this is one of my favs</h2>
-                    {% endif %}
                 </div>
-
-
-
-
-
-                <div>
-                    <a href="{% url 'album_info' pk=album.pk %}"> Album Info</a>
-                    <p></p>
-                    <a href="{% url 'delete_album' pk=album.pk%}">Remove Album</a>
-                    <p></p>
-
-
-                </div>
-
             </div>
         </div>
     </div>
