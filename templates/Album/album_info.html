@@ -3,7 +3,7 @@
 <a href="{% url 'list_albums' %}">Return to Albums Page</a>
 
 <div>
-    <h1> {{album}}</h1>
+    <h1> {{album}}{% if album.favorite == True %}&#11088; {% endif %}</h1>
     <div>
         <h2>{{album.artist}}</h2>
         <p>Added to database on: {{album.added_to_database_at}}</p>
