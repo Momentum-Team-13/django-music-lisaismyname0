@@ -4,7 +4,7 @@
 
 <h1> Albums by {{album.artist}}</h1>
 {% for album in album.artist.albums.all %}
-<div>{{album}} </div>
+<div><a href="{% url 'album_info' pk=album.pk%}">{{album}}</a> </div>
 {% endfor %}
 
 <a href="{% url 'list_albums' %}">Return to Albums Page</a>

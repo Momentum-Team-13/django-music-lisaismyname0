@@ -21,7 +21,9 @@
     <p>More albums by {{album.artist}}</p>
 
     {% for album in album.artist.albums.all %}
-    <div>{{album}} </div>
+    <div>
+        <a href="{% url 'album_info' pk=album.pk%}">{{album}}</a>
+    </div>
     {% endfor %}
 </div>
 
