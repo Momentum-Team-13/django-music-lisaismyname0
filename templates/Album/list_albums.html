@@ -30,13 +30,6 @@
                         <a href="{% url 'delete_album' pk=album.pk%}">Remove Album</a>
                         <p></p>
                     </div>
-                    <div>
-                        <form action="{% url 'edit_album' pk=album.pk %}" method="POST">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <button type="submit">Click to Favorite</button>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
