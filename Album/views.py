@@ -71,5 +71,4 @@ def add_favorite(request, pk):
 
 def by_artist(request, pk):
     album = get_object_or_404(Album, pk=pk)
-    artist = album.artist
-    return render(request, "Album/by_artist.html", {"album": album, "artist": artist})
+    return render(request, "Album/by_artist.html", {"artist": album.artist})
