@@ -26,13 +26,6 @@ class Artist(models.Model):
         return f"{self.name}"
 
 
-class User(models.Model):
-    name = "Lisa"
-
-    def __str__(self):
-        return f"{self.name}"
-
-
 class Favorite(models.Model):
     album = models.ForeignKey(
         Album, on_delete=models.CASCADE, related_name="favorites")
