@@ -2,10 +2,6 @@
 
 {% block content%}
 
-<h1>Albums by {{album.artist}} in my collection</h1>
-
-{% for album in album.artist %}
-<div>{{album}} </div>
-
-{% endfor %}
+<h1>Albums by {{artist}} in my collection</h1>
+{{artist.album}}
 {% endblock %}

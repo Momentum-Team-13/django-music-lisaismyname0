@@ -16,7 +16,7 @@
                 <div>
                     <h2>{{album}} - <a href="{% url 'by_artist' pk=album.artist.pk%}">{{album.artist}}</a></h2>
                     {% if album.favorite == True %}
-                    <h2>{{Album}} This is one of my favs </h2>
+                    <h2>^ this is one of my favs </h2>
                     {% endif %}
                 </div>
 
