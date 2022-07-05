@@ -7,17 +7,12 @@ h2 {
 }
 
 #container {
-    max-width: 80 px;
-    height: auto;
     display: flex;
     border: 2px solid black;
     box-sizing: content-box;
 }
 
 .album_card {
-    width: 80 px;
-    background-color: green;
-    height: auto;
     border: 5px black solid;
     display: flex;
     box-sizing: content-box;

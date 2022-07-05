@@ -15,11 +15,15 @@
             <div class="album_card">
                 <div>
                     <h2>{{album}} - <a href="{% url 'by_artist' pk=album.artist.pk%}">{{album.artist}}</a></h2>
+                    <div>
+                        <form action="{% url 'album_info' pk=album.pk %}" method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit">Click to Favorite</button>
+                        </form>
+                    </div>
                     {% if album.favorite == True %}
                     <h2>^ this is one of my favs</h2>
-                    {% endif %}
-                    {% if album.favorite == True %}
-                    <p>fave</p>
                     {% endif %}
                 </div>
 
