@@ -10,7 +10,7 @@ class Album(models.Model):
         "Artist", on_delete=models.CASCADE, related_name="albums", blank=True, null=True)
     # this says given an artist i can show all of the album objects that are related to that artist
     # one to many field (album can have 1 artist, but an artist can have many albums)
-    favorite = models.BooleanField(default="False")
+    favorite = models.BooleanField(default="True")
 
     def __str__(self):
         return f"{self.name}"
