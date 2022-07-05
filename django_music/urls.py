@@ -33,5 +33,7 @@ urlpatterns = [
          name='delete_album'),
 
     path('Album/<int:pk>/artist/', album_views.by_artist, name="by_artist",
-         )
+         ),
+
+    path('Album/<int:pk>/favorite/', album_views.add_favorite, name="add_favorite"),
 ]

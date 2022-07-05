@@ -1,5 +1,6 @@
 from django import forms
 from .models import Album
+from .models import Favorite
 
 
 class AlbumForm(forms.ModelForm):
@@ -16,11 +17,11 @@ class AlbumForm(forms.ModelForm):
         }
 
 
-# class FavoriteForm(forms.ModelForm):
-#     fields = [
-#         "favorite"
-#         "user"
-#     ]
-#     labels = {
-#         "favorite": "⭐",
-#     }
+class FavoriteForm(forms.ModelForm):
+    model = Favorite
+    fields = [
+        "favorite"
+    ]
+    labels = {
+        "favorite": "⭐",
+    }
