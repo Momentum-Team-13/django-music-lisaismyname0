@@ -6,4 +6,7 @@
 {% for album in album.artist.albums.all %}
 <div>{{album}} </div>
 {% endfor %}
+
+<a href="{% url 'list_albums' %}">Return to Albums Page</a>
+
 {% endblock %}
