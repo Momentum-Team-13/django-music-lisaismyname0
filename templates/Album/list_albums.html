@@ -17,12 +17,12 @@
                 <div>
                     <h3>{{album}} - <a href="{% url 'by_artist' pk=album.artist.pk%}">{{album.artist}}</a></h3>
                     {% if album.favorite == True %}
-                    <p>&#11088; <a href="{% url 'edit_album' pk=album.pk %}"> Undo Favorite </a>
+                    <p> <a href="{% url 'edit_album' pk=album.pk %}"> &#11088; Undo Favorite </a>
                     </p>
 
                     <p></p>
                     {% else %}
-                    <a href="{% url 'edit_album' pk=album.pk %}">Add to Favorites</a>
+                    <a href="{% url 'edit_album' pk=album.pk %}"> &#9734; Add to Favorites</a>
                     <p></p>
                     {% endif %}
                 </div>
