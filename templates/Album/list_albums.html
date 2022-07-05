@@ -28,9 +28,6 @@
                     <a href="{% url 'album_info' pk=album.pk %}"> Album Info</a>
                     <p></p>
                     <a href="{% url 'delete_album' pk=album.pk%}">Remove Album</a>
-                    <form action="{% url 'add_favorite' pk=album.pk %}">
-                        <button type="submit">Click to Favorite</button>
-                    </form>
                     <p></p>
 
 

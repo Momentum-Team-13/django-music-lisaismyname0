@@ -55,7 +55,7 @@ def delete_album(request, pk):
 
 def add_favorite(request, pk):
     album = get_object_or_404(Album, pk=pk)
-    if request.method == "GET":
+    if request.method == "POST":
         FavoriteForm()
     else:
         form = FavoriteForm(data=request.POST)

@@ -10,14 +10,21 @@
         <p>Added to database on: {{album.added_to_database_at}}</p>
     </div>
 </div>
-
+<div>
+    <form action="{% url 'album_info' pk=album.pk %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Click to Favorite</button>
+    </form>
+    {% if album.favorite == True %}
+    {% endif %}
+</div>
 <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>
 <div>
     <p>More albums by {{album.artist}}</p>
 
     {% for album in album.artist.albums.all %}
     <div>{{album}} </div>
-
     {% endfor %}
 </div>
 
