@@ -29,3 +29,4 @@ class Artist(models.Model):
 class Favorite(models.Model):
     album = models.ForeignKey(
         Album, on_delete=models.CASCADE, related_name="favorites")
+    favorite = models.BooleanField(default=False)

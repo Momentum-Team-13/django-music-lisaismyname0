@@ -18,10 +18,11 @@ class AlbumForm(forms.ModelForm):
 
 
 class FavoriteForm(forms.ModelForm):
-    model = Favorite
-    fields = [
-        "favorite"
-    ]
-    labels = {
-        "favorite": "⭐",
-    }
+    class Meta:
+        model = Favorite
+        fields = [
+            "favorite"
+        ]
+        labels = {
+            "favorite": "⭐",
+        }
