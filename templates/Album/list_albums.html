@@ -17,7 +17,7 @@
                 <div>
                     <h3>{{album}} - <a href="{% url 'by_artist' pk=album.artist.pk%}">{{album.artist}}</a></h3>
                     {% if album.favorite == True %}
-                    <p>^ this is one of my favs <a href="{% url 'edit_album' pk=album.pk %}"> Undo Favorite </a>
+                    <p>&#11088; <a href="{% url 'edit_album' pk=album.pk %}"> Undo Favorite </a>
                     </p>
 
                     <p></p>

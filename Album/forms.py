@@ -14,6 +14,7 @@ class AlbumForm(forms.ModelForm):
         labels = {
             "artist": "artist",
             "album": "album",
+            "favorite": "⭐"
         }
 
 
