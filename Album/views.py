@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Album
+from .models import Album, Artist, Favorite
 from .forms import AlbumForm
 from Album.models import Artist
 from .forms import FavoriteForm
@@ -9,7 +9,9 @@ from .forms import FavoriteForm
 
 def list_albums(request):
     albums = Album.objects.all()
-    return render(request, "Album/list_albums.html", {"albums": albums})
+    favorite_albums = [
+        album for album in albums if album.check_if_fave(request.user)]
+    return render(request, "Album/list_albums.html", {"albums": albums, "favorite_albums": favorite_albums})
 
 
 def album_info(request, pk):
@@ -62,7 +64,7 @@ def add_favorite(request, pk):
         if form.is_valid():
             form.save()
             return redirect(to='list_albums')
-    return render(request, "Album/favorite.html", {
+    return render(request, "Album/add_favorite.html", {
         "form": form,
         "album": album, })
 

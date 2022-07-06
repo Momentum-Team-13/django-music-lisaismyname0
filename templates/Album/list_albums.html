@@ -22,12 +22,17 @@
                     <div><a href="{% url 'by_artist' pk=artist.pk %}">{{artist}}</a></div>
                     {% endfor %}
                     {% if album.favorite == True %}
+                    {% if album in favorite_albums %}
+                    <p>fave</p>
+                    {% else %}
+                    not fave
+                    {% endif %}
                     <p> <a href="{% url 'edit_album' pk=album.pk %}"> &#11088; Undo Favorite </a>
                     </p>
 
                     <p></p>
                     {% else %}
-                    <a href="{% url 'edit_album' pk=album.pk %}"> &#9734; Add to Favorites</a>
+                    <a href="{% url 'add_favorite' pk=album.pk %}"> &#9734; Add to Favorites</a>
                     <p></p>
                     {% endif %}
                 </div>
