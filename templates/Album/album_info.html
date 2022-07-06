@@ -4,8 +4,12 @@
 
 <div>
     <h1> {{album}}{% if album.favorite == True %}&#11088; {% endif %}</h1>
+    {% for artist in album.artists.all %}
     <div>
-        <h2>{{album.artist}}</h2>
+        <h3>{{artist}}</h3>
+    </div>
+    {% endfor %}
+    <div>
         <p>Added to database on: {{album.added_to_database_at}}</p>
     </div>
 </div>

@@ -15,7 +15,12 @@
         <div>
             <div class="album_card">
                 <div>
-                    <h3>{{album}} - <a href="{% url 'by_artist' pk=album.pk%}">{{album.artist}}</a></h3>
+
+                    <h3>{{album}}</h3>
+
+                    {% for artist in album.artists.all %}
+                    <div><a href="{% url 'by_artist' pk=artist.pk %}">{{artist}}</a></div>
+                    {% endfor %}
                     {% if album.favorite == True %}
                     <p> <a href="{% url 'edit_album' pk=album.pk %}"> &#11088; Undo Favorite </a>
                     </p>

@@ -7,14 +7,14 @@ class AlbumForm(forms.ModelForm):
     class Meta:
         model = Album
         fields = [
-            "artist",
+            "artists",
             "name",
-            "favorite"
+            # "favorite"
         ]
         labels = {
-            "artist": "artist",
+            "artists": "artists",
             "album": "album",
-            "favorite": "Mark as favorite ⭐"
+            # "favorite": "Mark as favorite ⭐"
         }
 
 
@@ -22,8 +22,6 @@ class FavoriteForm(forms.ModelForm):
     class Meta:
         model = Favorite
         fields = [
-            "favorite"
+            "user",
+            "album",
         ]
-        labels = {
-            "favorite": "⭐",
-        }
