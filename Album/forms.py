@@ -11,7 +11,7 @@ class AlbumForm(forms.ModelForm):
             "name",
         ]
         labels = {
-            "artists": "Artists:",
+            "artists": "Artist(s): (shift + select for multiple)",
             "name": "Album Title:",
         }
 
