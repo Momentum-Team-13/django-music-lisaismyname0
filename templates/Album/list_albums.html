@@ -2,37 +2,42 @@
 
 {% block content %}
 {% load static %}
-
 <p><a href="{% url 'add_album' %}">Add New Album</a></p>
 
-<h1>My Album Collection</h1>
-<p> click "Album Info" or Artist's name for more information</p>
+<div id="board">
+    <div id="head">
 
-{% for album in albums %}
+        <h1>My Album Collection</h1>
+        <p> click "Album Info" or Artist's name for more information</p>
+    </div>
 
-<div id="container">
-    <div>
+
+    {% for album in albums %}
+    <div id="container">
         <div>
-            <div class="album_card">
-                <div>
-
-                    <h3>{{album}}</h3>
-
-                    {% for artist in album.artists.all %}
-                    <div><a href="{% url 'by_artist' pk=artist.pk %}">{{artist}}</a></div>
-                    {% endfor %}
-                    {% if album in favorite_albums %}
-                    <p> <a href="{% url 'undo_favorite' pk=album.pk %}"> &#11088; Undo Favorite </a>
-                        {% else %}
-                    <p></p>
-                    <a href="{% url 'add_favorite' pk=album.pk %}"> &#9734; Add to Favorites</a>
-                    <p></p>
-                    </p>
-                    {% endif %}
-                </div>
-
-                <div class="album_buttons">
+            <div>
+                <div class="album_card">
                     <div>
+                        <br>
+                        <br>
+                        <h3>Album - {{album}}</h3>
+
+                        {% for artist in album.artists.all %}
+                        <div>by:<a href="{% url 'by_artist' pk=artist.pk %}">
+                                <span id='artist'>{{artist}}</span>
+                            </a></div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="album_buttons">
+                        {% if album in favorite_albums %}
+                        <p> <a href="{% url 'undo_favorite' pk=album.pk %}"> &#11088; Undo Favorite </a>
+                            {% else %}
+                        <p></p>
+                        <a href="{% url 'add_favorite' pk=album.pk %}"> &#9734; Add to Favorites</a>
+                        {% endif %}
+                        <p></p>
+                        </p>
                         <a href="{% url 'album_info' pk=album.pk %}"> Album
                             Info</a>
                         <p></p>
@@ -43,9 +48,9 @@
             </div>
         </div>
     </div>
+
+    {% endfor %}
+
+
 </div>
-{% endfor %}
-
-
-
 {% endblock %}

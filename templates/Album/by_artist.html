@@ -2,7 +2,7 @@
 
 {% block content%}
 
-<h1> Albums by {{artist}}</h1>
+<h1> Albums in my collection by {{artist}}</h1>
 {% for album in artist.albums.all %}
 <div><a href="{% url 'album_info' pk=album.pk%}">{{album}}</a> </div>
 {% endfor %}

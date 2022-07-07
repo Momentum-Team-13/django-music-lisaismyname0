@@ -24,7 +24,7 @@
 <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>
 
 <div>
-    <h4>More albums by
+    <h4>More in my collection by:
         {% for artist in album.artists.all %}
         <div>
             <h3><a href="{% url 'by_artist' pk=artist.pk %}">{{artist}}</a> </h3>

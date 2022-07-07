@@ -1,5 +1,18 @@
 * {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Permanent Marker', cursive;
+}
+
+#head {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.256);
+
+}
+
+#board {
+    padding: 40px;
+    background-image: url(board.jpg);
+    background-size: contain;
+
 }
 
 #container {
@@ -10,18 +23,21 @@
 }
 
 .album_card {
-    border: 1px black solid;
+    width: 200px;
+    height: auto;
     border-radius: 10 px;
     display: flex;
     flex-direction: column;
     box-sizing: content-box;
     flex-wrap: wrap;
-    padding: 5px;
+    padding: 15px;
     margin: 10px;
     box-shadow: 5px 10px gray;
+    background-image: url(note.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .album_buttons {
-    display: flex;
-    flex-direction: row;
+    align-self: center;
 }
