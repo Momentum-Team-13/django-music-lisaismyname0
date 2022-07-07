@@ -17,7 +17,7 @@
 #board {
     padding: 40px;
     background-image: url(board.jpg);
-    background-size: contain;
+    background-size: 100% 100%;
 
 }
 
@@ -25,7 +25,7 @@
     width: fit-content;
     background-image: url(index_card.png);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100 100%;
 }
 
 #container {
@@ -49,6 +49,11 @@
     background-image: url(note.png);
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.album_card:hover {
+    /* border: 2px dashed black; */
+    transform: translate(0, 15px);
 }
 
 .album_buttons {
