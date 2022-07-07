@@ -3,11 +3,9 @@
 <a href="{% url 'list_albums' %}">Return to Albums Page</a>
 
 <div>
-    <h1> {{album}}</h1>
-    {% for artist in album.artists.all %}
-    <div>
-        <h3>{{artist}}</h3>
-    </div>
+    <h1> {{album}} -
+        {% for artist in album.artists.all %}
+        {{artist}}</h1>
     {% endfor %}
     <div>
         <p>Added to database on: {{album.added_to_database_at}}</p>
@@ -24,16 +22,14 @@
     {% endif %}
 </div>
 <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>
+
 <div>
-    <h4>More albums by {{album.artist}}:</h4>
+    <h4>More albums by
+        {% for artist in album.artists.all %}
+        <div>
+            <h3><a href="{% url 'by_artist' pk=artist.pk %}">{{artist}}</a> </h3>
+        </div>
+        {% endfor %}
+    </h4>
 
-    {% for album in album.artist.albums.all %}
-    <div>
-        <a href="{% url 'album_info' pk=album.pk%}">{{album}}</a>
-    </div>
-</div>
-{% endfor %}
-
-
-
-{% endblock %}
+    {% endblock %}
