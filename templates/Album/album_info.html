@@ -1,35 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
-<a href="{% url 'list_albums' %}">Return to Albums Page</a>
 
-<div>
-    <h1> {{album}} -
-        {% for artist in album.artists.all %}
-        {{artist}}<br> {% endfor %}</h1>
+<div id="journal_entry">
+    <div id="inside_note">
+        <h1> {{album}}<br>
+            <p style="margin-left:300px">by
+                {% for artist in album.artists.all %}
+                {{artist}}<br>
+                {% endfor %}</p>
+        </h1>
 
-    <div>
-        <p>Added to database on: {{album.added_to_database_at}}</p>
+        <div>
+            <p>Added on: {{album.added_to_database_at}}</p>
+        </div>
+
+        <div>
+            {% if album in favorite_albums %}
+            <p> <a href="{% url 'undo_favorite' pk=album.pk %}"> &#11088; Undo Favorite </a>
+                {% else %}
+            <p></p>
+            <a href="{% url 'add_favorite' pk=album.pk %}"> &#9734; Add to Favorites</a>
+            <p></p>
+            </p>
+            {% endif %}
+        </div>
+        <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>
+
+        <div>
+            <h4>More in my collection by:
+                {% for artist in album.artists.all %}
+
+                <span><a href="{% url 'by_artist' pk=artist.pk %}">{{artist}}</a> </span>
+
+                {% endfor %}
+            </h4>
+        </div>
     </div>
 </div>
-<div>
-    {% if album in favorite_albums %}
-    <p> <a href="{% url 'undo_favorite' pk=album.pk %}"> &#11088; Undo Favorite </a>
-        {% else %}
-    <p></p>
-    <a href="{% url 'add_favorite' pk=album.pk %}"> &#9734; Add to Favorites</a>
-    <p></p>
-    </p>
-    {% endif %}
-</div>
-<a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>
 
-<div>
-    <h4>More in my collection by:
-        {% for artist in album.artists.all %}
-        <div>
-            <h3><a href="{% url 'by_artist' pk=artist.pk %}">{{artist}}</a> </h3>
-        </div>
-        {% endfor %}
-    </h4>
-
-    {% endblock %}
+<a href="{% url 'list_albums' %}">
+    <- Return to Albums Page</a>
+        {% endblock %}

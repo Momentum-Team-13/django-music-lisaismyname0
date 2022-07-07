@@ -6,6 +6,12 @@
     text-align: center;
     background-color: rgba(255, 255, 255, 0.256);
 
+
+}
+
+#inside_note {
+    margin: 10px;
+    padding: 10px;
 }
 
 #board {
@@ -13,6 +19,13 @@
     background-image: url(board.jpg);
     background-size: contain;
 
+}
+
+#journal_entry {
+    width: fit-content;
+    background-image: url(index_card.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 #container {

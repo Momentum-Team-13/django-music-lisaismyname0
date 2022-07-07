@@ -1,16 +1,24 @@
 {% extends "base.html" %}
 
 {% block content%}
+<div>
+    <div id="journal_entry">
+        <h1> Albums in my collection by:
+            <p style="margin-left:200px"> {{artist}}
+        </h1>
+        </p>
+        {% for album in artist.albums.all %}
+        <div><a href="{% url 'album_info' pk=album.pk%}">
+                <p>{{album}}</p>
+            </a> </div>
+        {% endfor %}
+        <p></p>
 
-<h1> Albums in my collection by {{artist}}</h1>
-{% for album in artist.albums.all %}
-<div><a href="{% url 'album_info' pk=album.pk%}">{{album}}</a> </div>
-{% endfor %}
-<p></p>
-<a href="{% url 'list_albums' %}">Return to Albums Page</a>
-
-{% for artist in album.artists.all %}
-<div>{{artist}}</div>
-{% endfor %}
-
-{% endblock %}
+        {% for artist in album.artists.all %}
+        <div>{{artist}}</div>
+        {% endfor %}
+    </div>
+</div>
+<a href="{% url 'list_albums' %}">
+    <- Return to Albums Page</a>
+        {% endblock %}
