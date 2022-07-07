@@ -16,7 +16,10 @@ def list_albums(request):
 
 def album_info(request, pk):
     album = get_object_or_404(Album, pk=pk)
-    return render(request, "Album/album_info.html", {"album": album})
+    albums = Album.objects.all()
+    favorite_albums = [
+        album for album in albums if album.check_if_fave(request.user)]
+    return render(request, "Album/album_info.html", {"album": album, "favorite_albums": favorite_albums})
 
 
 def add_album(request):
