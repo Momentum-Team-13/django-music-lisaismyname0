@@ -3,7 +3,7 @@ from .models import Album, Artist, Favorite
 from .forms import AlbumForm
 from Album.models import Artist
 from .forms import FavoriteForm
-
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 
@@ -63,13 +63,13 @@ def add_favorite(request, pk):
     favorite = Favorite.objects.create(album=album, user=request.user)
     # create a favorite whose album we just got
     favorite.save()
-    return redirect(to="list_albums",)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
 def undo_favorite(request, pk):
     favorite = Favorite.objects.get(album__id=pk)
     favorite.delete()
-    return redirect(to="list_albums",)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
 def by_artist(request, pk):

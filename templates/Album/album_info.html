@@ -5,8 +5,8 @@
 <div>
     <h1> {{album}} -
         {% for artist in album.artists.all %}
-        {{artist}}</h1>
-    {% endfor %}
+        {{artist}}<br> {% endfor %}</h1>
+
     <div>
         <p>Added to database on: {{album.added_to_database_at}}</p>
     </div>

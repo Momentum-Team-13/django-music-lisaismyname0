@@ -20,6 +20,7 @@
 
                     {% for artist in album.artists.all %}
                     <div><a href="{% url 'by_artist' pk=artist.pk %}">{{artist}}</a></div>
+                    {% endfor %}
                     {% if album in favorite_albums %}
                     <p> <a href="{% url 'undo_favorite' pk=album.pk %}"> &#11088; Undo Favorite </a>
                         {% else %}
@@ -28,7 +29,6 @@
                     <p></p>
                     </p>
                     {% endif %}
-                    {% endfor %}
                 </div>
 
                 <div class="album_buttons">
