@@ -37,5 +37,8 @@ urlpatterns = [
 
     path('Album/<int:pk>/favorite/', album_views.add_favorite, name="add_favorite"),
 
-    path('artists/<int:pk>/works', album_views.by_artist, name="by_artist")
+    path('artists/<int:pk>/works', album_views.by_artist, name="by_artist"),
+
+    path('Album/<int:pk>/undo_favorite/',
+         album_views.undo_favorite, name="undo_favorite"),
 ]

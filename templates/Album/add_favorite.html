@@ -12,4 +12,14 @@
         </div>
     </form>
 </div>
+
+{% if album in favorite_albums %}
+<p> <a href="{% url 'add_favorite' pk=album.pk %}"> &#11088; Undo Favorite </a>
+    {% else %}
+<p></p>
+<a href="{% url 'add_favorite' pk=album.pk %}"> &#9734; Add to Favorites</a>
+<p></p>
+</p>
+{% endif %}
+
 {% endblock %}
